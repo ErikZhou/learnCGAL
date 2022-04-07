@@ -1,4 +1,12 @@
-cmake_minimum_required(VERSION 2.8)
+#cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.1...3.22)
+
+message(STATUS "VCPKG_DIR: $ENV{VCPKG_DIR}")
+if(DEFINED ENV{VCPKG_DIR} AND NOT DEFINED CMAKE_TOOLCHAIN_FILE)
+	set(CMAKE_TOOLCHAIN_FILE $ENV{VCPKG_DIR}/scripts/buildsystems/vcpkg.cmake CACHE STRING "")
+endif()
+message(STATUS "CMAKE_TOOLCHAIN_FILE: ${CMAKE_TOOLCHAIN_FILE}")
+include(c:/work/code/vcpkg/scripts/buildsystems/vcpkg.cmake)
 
 project(learnCGAL)
 
@@ -18,9 +26,5 @@ add_subdirectory(demo_10)
 add_subdirectory(demo_11)
 add_subdirectory(demo_12)
 add_subdirectory(demo_13)
-<<<<<<< HEAD
 add_subdirectory(demo_16)
-=======
 add_subdirectory(demo_14)
-
->>>>>>> e9e1c602e6cf8cb81b80f1463f082553eebce34e
